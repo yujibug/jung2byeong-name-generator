@@ -1,21 +1,41 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
-function Generator() {
+function Generator(props) {
   const firstName = useRef();
+  const secondName = useRef();
+  const userName = useRef();
+  const firstNameData = props.data.firstNames;
+  const secondNameData = props.data.secondNames;
 
-  function 할당() {
-    firstName.current.innerHTML = '참회하는';
+  function randomNumberGenerator(data) {
+    const randomNumber = Math.random() * data.length;
+    return randomNumber;
+  }
+
+  function randomNameGenerator(name, data) {
+    name.current.innerHTML = data[Math.floor(randomNumberGenerator(data))];
+  }
+
+  function nameInserter(name) {
+    name.current.innerHTML = props.name;
+  }
+
+  function btnEvent() {
+    if (props.name === '') {
+      return;
+    }
+    randomNameGenerator(firstName, firstNameData);
+    randomNameGenerator(secondName, secondNameData);
+    nameInserter(userName);
   }
 
   return (
     <div>
-      <button onClick={할당}>생성</button>
+      <button onClick={btnEvent}>생성</button>
       <div className='generator-name-container'>
-        <h4 className='name-first' ref={firstName}>
-          불멸의
-        </h4>
-        <h4 className='name-second'>심판자</h4>
-        <h4 className='name-user'>기오</h4>
+        <h4 className='name-first' ref={firstName}></h4>
+        <h4 className='name-second' ref={secondName}></h4>
+        <h4 className='name-user' ref={userName}></h4>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 function Inputter(props) {
   return (
@@ -9,7 +9,6 @@ function Inputter(props) {
         className='input-name'
         onChange={(e) => {
           props.setName(e.target.value);
-          console.log(props.name);
         }}
       />
     </div>
