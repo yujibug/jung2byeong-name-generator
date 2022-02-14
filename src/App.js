@@ -1,13 +1,16 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import Inputter from './Inputter';
 import Generator from './Generator';
+import Result from './Result';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { brands } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
 
 function App() {
   let [data, setData] = useState('');
+  let [firstResult, setFirstResult] = useState('');
+  let [secondResult, setSecondResult] = useState('');
+  let [generateBtnActive, setGenerateBtnActive] = useState(false);
 
   useEffect(() => {
     axios
@@ -24,16 +27,28 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='page-wrapper'>
+      <div className='background'>
         <div className='main-container'>
           <div className='main-title-wrapper'>
             <h1 className='title'>중2병 이름 생성기</h1>
           </div>
-          <div className='main-inputter-wrapper'>
-            <Inputter name={name} setName={setName}></Inputter>
+          <div className='main-generator-wrapper'>
+            <Generator
+              data={data}
+              setFirstResult={setFirstResult}
+              setSecondResult={setSecondResult}
+              setGenerateBtnActive={setGenerateBtnActive}
+              setName={setName}
+            ></Generator>
           </div>
-          <div className='main-generator-container'>
-            <Generator data={data} name={name}></Generator>
+          <div className='main-result-container'>
+            {generateBtnActive === true ? (
+              <Result
+                name={name}
+                firstResult={firstResult}
+                secondResult={secondResult}
+              ></Result>
+            ) : null}
             <FontAwesomeIcon icon={brands('twitter-square')} />
           </div>
         </div>

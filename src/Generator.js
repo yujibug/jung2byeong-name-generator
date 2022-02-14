@@ -1,9 +1,7 @@
 import React, { useRef } from 'react';
 
 function Generator(props) {
-  const firstName = useRef();
-  const secondName = useRef();
-  const userName = useRef();
+  const inputName = useRef();
   const firstNameData = props.data.firstNames;
   const secondNameData = props.data.secondNames;
 
@@ -12,32 +10,31 @@ function Generator(props) {
     return randomNumber;
   }
 
-  function randomNameGenerator(name, data) {
-    name.current.innerHTML = data[Math.floor(randomNumberGenerator(data))];
-  }
-
-  function nameInserter(name) {
-    name.current.innerHTML = props.name;
+  function randomNameGenerator(setResult, data) {
+    setResult(data[Math.floor(randomNumberGenerator(data))]);
   }
 
   function btnEvent() {
-    if (props.name === '') {
+    if (inputName.current.value === '') {
       return;
     }
-    randomNameGenerator(firstName, firstNameData);
-    randomNameGenerator(secondName, secondNameData);
-    nameInserter(userName);
+
+    props.setName(inputName.current.value);
+    randomNameGenerator(props.setFirstResult, firstNameData);
+    randomNameGenerator(props.setSecondResult, secondNameData);
+    props.setGenerateBtnActive(true);
   }
 
   return (
-    <div>
+    <>
+      <input
+        type='text'
+        placeholder='이름을 넣어주세요'
+        className='input-name'
+        ref={inputName}
+      />
       <button onClick={btnEvent}>생성</button>
-      <div className='generator-name-container'>
-        <h4 className='name-first' ref={firstName}></h4>
-        <h4 className='name-second' ref={secondName}></h4>
-        <h4 className='name-user' ref={userName}></h4>
-      </div>
-    </div>
+    </>
   );
 }
 
