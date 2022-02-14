@@ -1,38 +1,44 @@
-.App {
+@font-face {
+  font-family: 'neodgm';
+  src: url('./font/neodgm.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html,
+body,
+h1 {
+  margin: 0;
+}
+
+body {
+  line-height: 1;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.page-wrapper {
+  width: 100vw;
+  height: 100vh;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'neodgm';
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(./img/background.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 1px;
 }
 
-.App-link {
-  color: #61dafb;
+.main-container {
+  width: 50%;
+  /* background-color: red; */
+  margin: 150px auto 0 auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-title-wrapper {
+  font-size: 48px;
+  word-spacing: -20px;
 }

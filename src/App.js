@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Inputter from './Inputter';
 import Generator from './Generator';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { brands } from '@fortawesome/fontawesome-svg-core/import.macro'; // <-- import styles to be used
 
 function App() {
   let [data, setData] = useState('');
@@ -22,10 +24,19 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='container'>
-        <h2 className='title'>중2병 이름 생성기</h2>
-        <Inputter name={name} setName={setName}></Inputter>
-        <Generator data={data} name={name}></Generator>
+      <div className='page-wrapper'>
+        <div className='main-container'>
+          <div className='main-title-wrapper'>
+            <h1 className='title'>중2병 이름 생성기</h1>
+          </div>
+          <div className='main-inputter-wrapper'>
+            <Inputter name={name} setName={setName}></Inputter>
+          </div>
+          <div className='main-generator-container'>
+            <Generator data={data} name={name}></Generator>
+            <FontAwesomeIcon icon={brands('twitter-square')} />
+          </div>
+        </div>
       </div>
     </div>
   );
