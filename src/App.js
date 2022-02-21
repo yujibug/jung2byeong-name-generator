@@ -25,33 +25,60 @@ function App() {
 
   let [name, setName] = useState('');
 
+  function twitterShare() {
+    let sendText =
+      '크큭..나의 이명은 ' +
+      '<' +
+      firstResult +
+      ' ' +
+      secondResult +
+      ' ' +
+      name +
+      '>';
+    let sendUrl = '임시링크';
+    let sendHashTag = '중2병이름생성기';
+    window.open(
+      'https://twitter.com/intent/tweet?text=' +
+        sendText +
+        '&hashtags=' +
+        sendHashTag +
+        '&url=' +
+        sendUrl
+    );
+  }
+
   return (
     <div className='App'>
       <div className='background'>
-        <div className='main-container'>
-          <div className='main-title-wrapper'>
-            <h1 className='title'>중2병 이름 생성기</h1>
-          </div>
-          <div className='main-generator-wrapper'>
-            <Generator
-              data={data}
-              setFirstResult={setFirstResult}
-              setSecondResult={setSecondResult}
-              setGenerateBtnActive={setGenerateBtnActive}
-              setName={setName}
-            ></Generator>
-          </div>
-          <div className='main-result-container'>
-            {generateBtnActive === true ? (
-              <Result
-                name={name}
-                firstResult={firstResult}
-                secondResult={secondResult}
-              ></Result>
-            ) : null}
-            <FontAwesomeIcon icon={brands('twitter-square')} />
-          </div>
+        <div className='main-title-wrapper'>
+          <h1 className='title'>중2병 이름 생성기</h1>
         </div>
+        <div className='main-generator-container'>
+          <Generator
+            data={data}
+            setFirstResult={setFirstResult}
+            setSecondResult={setSecondResult}
+            setGenerateBtnActive={setGenerateBtnActive}
+            setName={setName}
+          ></Generator>
+        </div>
+
+        {generateBtnActive === true ? (
+          <div className='main-result-container'>
+            <Result
+              name={name}
+              firstResult={firstResult}
+              secondResult={secondResult}
+            ></Result>
+            <div>
+              <FontAwesomeIcon
+                className='tweetBtn'
+                icon={brands('twitter-square')}
+                onClick={twitterShare}
+              />
+            </div>
+          </div>
+        ) : null}
       </div>
     </div>
   );

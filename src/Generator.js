@@ -26,15 +26,17 @@ function Generator(props) {
   }
 
   return (
-    <>
+    <div>
       <input
         type='text'
-        placeholder='이름을 넣어주세요'
+        placeholder='너의 이름을..입력해라..'
         className='input-name'
         ref={inputName}
       />
-      <button onClick={btnEvent}>생성</button>
-    </>
+      <button className='btn generateBtn' onClick={btnEvent}>
+        생성
+      </button>
+    </div>
   );
 }
 

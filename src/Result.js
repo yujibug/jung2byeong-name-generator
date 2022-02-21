@@ -12,11 +12,13 @@ function Result(props) {
   });
 
   return (
-    <>
-      <h4 className='name-first' ref={firstName}></h4>
-      <h4 className='name-second' ref={secondName}></h4>
-      <h4 className='name-user' ref={userName}></h4>
-    </>
+    <div className='result-wrapper'>
+      <p>&#60;니놈의&#62; &#60;이명&#62;은</p>
+      <p>
+        &#60;<span ref={firstName}></span> <span ref={secondName}></span>{' '}
+        <span ref={userName}></span>&#62;
+      </p>
+    </div>
   );
 }
 
