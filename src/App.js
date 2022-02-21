@@ -35,7 +35,7 @@ function App() {
       ' ' +
       name +
       '>';
-    let sendUrl = '임시링크';
+    let sendUrl = 'yujibug.github.io';
     let sendHashTag = '중2병이름생성기';
     window.open(
       'https://twitter.com/intent/tweet?text=' +
