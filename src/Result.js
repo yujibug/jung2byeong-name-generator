@@ -6,6 +6,10 @@ function Result(props) {
   const userName = useRef();
 
   useEffect(() => {
+    props.setSlideSwitch(true);
+  }, []);
+
+  useEffect(() => {
     userName.current.innerHTML = props.name;
     firstName.current.innerHTML = props.firstResult;
     secondName.current.innerHTML = props.secondResult;

@@ -11,6 +11,7 @@ function App() {
   let [firstResult, setFirstResult] = useState('');
   let [secondResult, setSecondResult] = useState('');
   let [generateBtnActive, setGenerateBtnActive] = useState(false);
+  let [slideSwitch, setSlideSwitch] = useState(false);
 
   useEffect(() => {
     axios
@@ -35,7 +36,7 @@ function App() {
       ' ' +
       name +
       '>';
-    let sendUrl = 'yujibug.github.io';
+    let sendUrl = 'yujibug.github.io/jung2';
     let sendHashTag = '중2병이름생성기';
     window.open(
       'https://twitter.com/intent/tweet?text=' +
@@ -50,25 +51,39 @@ function App() {
   return (
     <div className='App'>
       <div className='background'>
-        <div className='main-title-wrapper'>
-          <h1 className='title'>중2병 이름 생성기</h1>
-        </div>
-        <div className='main-generator-container'>
-          <Generator
-            data={data}
-            setFirstResult={setFirstResult}
-            setSecondResult={setSecondResult}
-            setGenerateBtnActive={setGenerateBtnActive}
-            setName={setName}
-          ></Generator>
+        <div
+          className={
+            'title-generator-container' +
+            (slideSwitch === true ? ' slide-up' : '')
+          }
+        >
+          <div className='main-title-wrapper'>
+            <h1 className='title'>중2병 이름</h1>
+            <h1 className='title'>생성기</h1>
+          </div>
+          <div className='main-generator-container'>
+            <Generator
+              data={data}
+              setFirstResult={setFirstResult}
+              setSecondResult={setSecondResult}
+              setGenerateBtnActive={setGenerateBtnActive}
+              setName={setName}
+            ></Generator>
+          </div>
         </div>
 
         {generateBtnActive === true ? (
-          <div className='main-result-container'>
+          <div
+            className={
+              'main-result-container' +
+              (slideSwitch === true ? ' background-opacity' : '')
+            }
+          >
             <Result
               name={name}
               firstResult={firstResult}
               secondResult={secondResult}
+              setSlideSwitch={setSlideSwitch}
             ></Result>
             <div>
               <FontAwesomeIcon
