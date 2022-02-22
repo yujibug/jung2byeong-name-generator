@@ -44,7 +44,7 @@ div {
 }
 
 .title-generator-container {
-  margin: 300px auto 0 auto;
+  margin: 280px auto 0 auto;
   width: 50%;
   transition: margin 0.8s;
 }
@@ -54,12 +54,12 @@ div {
 }
 
 .title {
-  font-size: 80px;
+  font-size: 70px;
   word-spacing: -20px;
 }
 
 .main-generator-container {
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .main-generator-container div {
@@ -68,10 +68,10 @@ div {
 }
 
 .main-generator-container input {
-  padding: 20px;
+  padding: 18px;
   border-radius: 5px;
   border: 0;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .main-generator-container input:focus {
@@ -81,7 +81,7 @@ div {
 .btn {
   border: 0;
   outline: 0;
-  padding: 20px;
+  padding: 18px;
   border-radius: 5px;
   font-family: 'neodgm';
   cursor: pointer;
@@ -93,12 +93,14 @@ div {
   transition: all 0.4s;
 }
 
-.generateBtn:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
+@media (hover: hover) {
+  .generateBtn:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
 }
 
-.main-result-container {
+.result-wrapper {
   margin: 50px auto 0 auto;
   width: 550px;
   min-height: 150px;
@@ -113,7 +115,7 @@ div {
   background: rgba(0, 0, 0, 0.5);
 }
 
-.result-wrapper {
+.result-wrapper p:first-child {
   margin-top: 10px;
 }
 
@@ -121,26 +123,70 @@ div {
   font-size: 40px;
 }
 
+.tweetBtn-wrapper {
+  display: inline-block;
+  margin-top: 40px;
+  position: relative;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .tweetBtn-wrapper:hover .tweetBtn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: 0.4s;
+  }
+
+  .tweetBtn-wrapper:hover .tweetBtnText {
+    color: white;
+    transition: 0.4s;
+  }
+}
+
 .tweetBtn {
-  position: absolute;
-  bottom: 15px;
-  right: 0;
+  font-size: 15px;
+  color: black;
+  padding: 8px;
+  padding-right: 50px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.tweetBtnText {
+  font-size: 15px;
   display: block;
-  font-size: 25px;
-  padding-right: 30px;
+  color: black;
+  position: absolute;
+  top: 8px;
+  left: 28px;
 }
 
 @media screen and (max-width: 768px) {
   .title {
-    font-size: 60px;
+    font-size: 50px;
   }
-  .main-result-container {
+  .result-wrapper {
     width: 400px;
+    min-height: 130px;
   }
   .result-wrapper p {
     font-size: 30px;
   }
   .title-generator-container {
     min-width: 380px;
+  }
+  .generateBtn:active {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+  }
+  .tweetBtn-wrapper:active .tweetBtn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: 0.4s;
+  }
+
+  .tweetBtn-wrapper:active .tweetBtnText {
+    color: white;
+    transition: 0.4s;
   }
 }

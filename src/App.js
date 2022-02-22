@@ -73,24 +73,23 @@ function App() {
         </div>
 
         {generateBtnActive === true ? (
-          <div
-            className={
-              'main-result-container' +
-              (slideSwitch === true ? ' background-opacity' : '')
-            }
-          >
+          <div className='main-result-container'>
             <Result
               name={name}
               firstResult={firstResult}
               secondResult={secondResult}
               setSlideSwitch={setSlideSwitch}
+              slideSwitch={slideSwitch}
             ></Result>
-            <div>
+            <div className='tweetBtn-wrapper'>
               <FontAwesomeIcon
                 className='tweetBtn'
-                icon={brands('twitter-square')}
+                icon={brands('twitter')}
                 onClick={twitterShare}
               />
+              <p className='tweetBtnText' onClick={twitterShare}>
+                tweet
+              </p>
             </div>
           </div>
         ) : null}

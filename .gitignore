@@ -10,6 +10,7 @@
 
 # production
 /build
+/이전빌드파일
 
 # misc
 .DS_Store

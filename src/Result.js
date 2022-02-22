@@ -16,7 +16,12 @@ function Result(props) {
   });
 
   return (
-    <div className='result-wrapper'>
+    <div
+      className={
+        'result-wrapper' +
+        (props.slideSwitch === true ? ' background-opacity' : '')
+      }
+    >
       <p>&#60;니놈의&#62; &#60;이명&#62;은</p>
       <p>
         &#60;<span ref={firstName}></span> <span ref={secondName}></span>{' '}
