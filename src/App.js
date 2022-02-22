@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     axios
       .get(
-        'https://gist.githubusercontent.com/yujibug/d8acc6491116cac0a7ac6893189781d0/raw/2e4e2928ba17f3e1df51bb58bef03aca0980e0f3/nameData.json'
+        'https://gist.githubusercontent.com/yujibug/d8acc6491116cac0a7ac6893189781d0/raw/64afb8920006f3eadae65735869249d626aadb2d/nameData.json'
       ) //
       .then((response) => {
         setData(response.data);
